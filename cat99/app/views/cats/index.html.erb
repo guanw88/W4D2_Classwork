@@ -1,0 +1,6 @@
+<a href="<%= new_cat_url %>">Make a new cat!</a>
+
+<% @cats.each do |cat| %>
+  <%= render 'cat_info', action: :index, cat: cat %>  
+  <a href="<%= cat_url(cat) %>">View details</a>
+<% end %>
