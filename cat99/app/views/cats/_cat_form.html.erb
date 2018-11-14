@@ -16,10 +16,12 @@
     Name: <input type="text" name="cat[name]" value="<%= cat.name %>"></input>
   </label>
   <br/>
+  
   <label>
     Birth Date: <input type="date" name="cat[birth_date]" value="<%= cat.birth_date %>"></input>
   </label>
   <br/>
+  
   <label>
     Color: 
     <select name="cat[color]">
@@ -30,6 +32,7 @@
     </select>
   </label>
   <br/>
+  
   <label>
     Sex: 
     <input type="radio" name="cat[sex]" value="M" <%= action == :edit && cat.sex == 'M' ? "checked" : "" %>>Male</input>

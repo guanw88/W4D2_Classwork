@@ -1,0 +1,17 @@
+New Rental Request
+
+<form action="/" method="post">
+  
+  <label>
+    Select Cat: 
+    <select name="cat[name]">
+      <option value="" disabled selected>Choose Cat</option>
+      <% @cats.each do |cat| %>
+        <option value="<%= cat.name %>"><%= cat.name %></option>
+      <% end %>
+    </select>
+  </label>
+  <br/>
+  
+  
+</form>

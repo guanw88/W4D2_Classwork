@@ -6,7 +6,7 @@
 #  birth_date  :date             not null
 #  color       :string           not null
 #  name        :string           not null
-#  sex         :string           not null
+#  sex         :string(1)        not null
 #  description :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -30,6 +30,12 @@ class Cat < ApplicationRecord
     message: "Invalid gender" 
   }
   
+  has_many :cat_rental_requests,
+    primary_key: :id,
+    foreign_key: :cat_id, 
+    class_name: :CatRentalRequest,
+    dependent: :destroy
+  
   def birth_date_not_in_future
     if self.birth_date && self.birth_date > Date.today
       errors.add(:birth_date, "cannot be in the future")
@@ -40,4 +46,5 @@ class Cat < ApplicationRecord
     now = Date.today 
     age = ((now - self.birth_date).to_i / 365.25).to_i
   end 
+  
 end

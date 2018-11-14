@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+COLORS = %w(Black White Brown)
+
+10.times do 
+  Cat.create(name: Faker::Cat.name, birth_date: Faker::Date.birthday(1, 15), color: COLORS.sample, sex: ["M", "F"].sample, description: Faker::Cat.breed)
+end 
+
